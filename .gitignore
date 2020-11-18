@@ -12,6 +12,8 @@
 /config/admins.txt
 /config/comms.txt #shh
 /config/config.txt
+test.txt
+test.sh
 
 #Ignore compiled files and other files generated during compilation.
 *.mdme
@@ -217,3 +219,6 @@ tools/MapAtmosFixer/MapAtmosFixer/bin/*
 /_maps/templates.dm
 /config
 config/config.txt
+interactions/lewd
+config/config.txt
+*.txt

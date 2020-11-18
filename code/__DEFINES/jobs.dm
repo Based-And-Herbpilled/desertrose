@@ -134,6 +134,8 @@
 #define F13PUNRAIDER	(1<<4)
 #define F13DETECTIVE	(1<<5)
 #define EVENTCOVEN		(1<<6)
+#define F13LOCUSTCAPTAIN	(1<<7)
+#define F13LOCUST		(1<<8)
 
 #define ENCLAVE			(1<<9)
 
@@ -148,7 +150,9 @@
 
 #define F13CHIEF		(1<<0)
 #define F13SHAMAN		(1<<1)
-#define F13VILLAGER		(1<<2)
+#define F13HHUNTER		(1<<2)
+#define F13VILLAGER		(1<<3)
+#define F13HUNTER		(1<<4)
 
 #define FOLLOWERS		(1<<11)
 

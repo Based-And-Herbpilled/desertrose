@@ -3,12 +3,18 @@
 	name = "projectile gun"
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_NORMAL
-	var/spawnwithmagazine = TRUE
+	var/pulloutmag = TRUE
+	var/spawnwithmagazine = FALSE
 	var/mag_type = /obj/item/ammo_box/magazine/m10mm //Removes the need for max_ammo and caliber info
 	var/init_mag_type = null
 	var/obj/item/ammo_box/magazine/magazine
 	var/casing_ejector = TRUE //whether the gun ejects the chambered casing
 	var/en_bloc = 0
+	var/list/gunparts = list(/obj/item/prefabs/complex/screw,
+                /obj/item/prefabs/complex/trigger
+				)
+	var/list/extra_parts = list()
+	var/can_disassemble = FALSE
 
 /obj/item/gun/ballistic/Initialize()
 	. = ..()
@@ -24,11 +30,17 @@
 	update_icon()
 
 /obj/item/gun/ballistic/update_icon()
-	..()
-	if(current_skin)
-		icon_state = "[unique_reskin[current_skin]][suppressed ? "-suppressed" : ""][sawn_off ? "-sawn" : ""]"
-	else
-		icon_state = "[initial(icon_state)][suppressed ? "-suppressed" : ""][sawn_off ? "-sawn" : ""]"
+    ..()
+    if(current_skin)
+        icon_state = "[unique_reskin[current_skin]][suppressed ? "-suppressed" : ""][sawn_off ? "-sawn" : ""]"
+    else
+        var/ico = ""
+        if(gun_icon_state)
+            ico = "[gun_icon_state]" //It's a crafted gun and has a custom skin
+        else
+            ico = "[initial(icon_state)]" //just use default
+            
+        icon_state = "[ico][suppressed ? "-suppressed" : ""][sawn_off ? "-sawn" : ""]"
 
 
 /obj/item/gun/ballistic/process_chamber(empty_chamber = 1)
@@ -57,7 +69,17 @@
 
 /obj/item/gun/ballistic/attackby(obj/item/A, mob/user, params)
 	..()
-	if (istype(A, /obj/item/ammo_box/magazine))
+	if(istype(src.magazine,/obj/item/ammo_box/magazine/internal))
+		if(.)
+			return
+		var/num_loaded = magazine.attackby(A, user, params, 1)
+		if(num_loaded)
+			to_chat(user, "<span class='notice'>You load [num_loaded] shell\s into \the [src]!</span>")
+			playsound(user, 'sound/weapons/shotguninsert.ogg', 60, 1)
+			A.update_icon()
+			update_icon()
+			chamber_round(0)
+	else if(istype(A, /obj/item/ammo_box/magazine))
 		var/obj/item/ammo_box/magazine/AM = A
 		if (!magazine && istype(AM, mag_type))
 			if(user.transferItemToLoc(AM, src))
@@ -119,8 +141,17 @@
 			return
 	return ..()
 
+/obj/item/gun/ballistic/proc/reload(mob/M)
+	if(!magazine.ammo_count())
+		return 0
+	var/obj/item/ammo_casing/AC = magazine.get_round() //load next casing.
+	chambered = AC
+
 /obj/item/gun/ballistic/attack_self(mob/living/user)
 	var/obj/item/ammo_casing/AC = chambered //Find chambered round
+	if(!pulloutmag)
+		reload(user)
+		return
 	if(magazine)
 		if(en_bloc)
 			magazine.forceMove(drop_location())

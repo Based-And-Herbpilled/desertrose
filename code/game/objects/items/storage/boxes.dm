@@ -96,11 +96,10 @@
 
 // Ordinary survival box
 /obj/item/storage/box/survival/PopulateContents()
-	new /obj/item/clothing/mask/bandana/black(src)
 	new /obj/item/reagent_containers/hypospray/medipen/stimpak(src)
-	new /obj/item/reagent_containers/blood/radaway(src)
 	new /obj/item/stack/medical/gauze(src)
 	new /obj/item/flashlight/flare(src)
+	new /obj/item/reagent_containers/pill/radx(src)
 
 /obj/item/storage/box/survival/radio/PopulateContents()
 	..() // we want the survival stuff too.
@@ -366,6 +365,14 @@
 	for(var/i in 1 to 7)
 		new /obj/item/reagent_containers/food/drinks/sillycup( src )
 
+/obj/item/storage/box/bowls
+	name = "box of bowls"
+	desc = "It has a picture of a bowl on it."
+
+/obj/item/storage/box/bowls/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/reagent_containers/glass/bowl(src)
+	
 /obj/item/storage/box/donkpockets
 	name = "box of donk-pockets"
 	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"

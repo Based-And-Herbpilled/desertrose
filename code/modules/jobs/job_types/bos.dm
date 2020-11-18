@@ -16,12 +16,13 @@ Main doors: ACCESS_CAPTAIN 20
 /datum/outfit/job/bos
 	name = "bosdatums"
 	jobtype = /datum/job/bos
-	backpack = /obj/item/storage/backpack/explorer
-	ears = /obj/item/radio/headset/headset_bos
-	uniform =		/obj/item/clothing/under/syndicate/brotherhood
-	shoes = /obj/item/clothing/shoes/combat/swat
-	gloves = /obj/item/clothing/gloves/combat
-	id = /obj/item/card/id/dogtag
+	backpack = 	/obj/item/storage/backpack/explorer
+	satchel = 	/obj/item/storage/backpack/satchel/explorer
+	ears = 		/obj/item/radio/headset/headset_bos
+	uniform =	/obj/item/clothing/under/syndicate/brotherhood
+	shoes = 	/obj/item/clothing/shoes/combat/swat
+	gloves = 	/obj/item/clothing/gloves/combat
+	id = 		/obj/item/card/id/dogtag
 
 /datum/outfit/job/bos/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
@@ -246,11 +247,17 @@ Knight-Captain
 	access = list(ACCESS_ROBOTICS, ACCESS_BOS, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE, ACCESS_HYDROPONICS, ACCESS_KITCHEN, ACCESS_BAR, ACCESS_SEC_DOORS, ACCESS_ARMORY, ACCESS_BRIG)
 	minimal_access = list(ACCESS_ROBOTICS, ACCESS_BOS, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE, ACCESS_HYDROPONICS, ACCESS_KITCHEN, ACCESS_BAR, ACCESS_SEC_DOORS, ACCESS_ARMORY, ACCESS_BRIG)
 
+/datum/job/bos/f13knightcap/after_spawn(mob/living/carbon/human/H, mob/M)
+	H.add_quirk("Master Gunsmith")
+
 /datum/outfit/job/bos/f13knightcap/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
 	if(visualsOnly)
 		return
 	H.add_trait(TRAIT_CHEMWHIZ)
+
+
+
 
 /datum/outfit/job/bos/f13knightcap
 	name = "Knight-Captain"
@@ -578,6 +585,9 @@ datum/job/bos/f13seniorknight
 	access = list(ACCESS_ROBOTICS, ACCESS_BOS, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE, ACCESS_HYDROPONICS, ACCESS_KITCHEN, ACCESS_BAR, ACCESS_SEC_DOORS)
 	minimal_access = list(ACCESS_ROBOTICS, ACCESS_BOS, ACCESS_ENGINE_EQUIP, ACCESS_ENGINE, ACCESS_HYDROPONICS, ACCESS_KITCHEN, ACCESS_BAR, ACCESS_SEC_DOORS)
 
+/datum/job/bos/f13seniorknight/after_spawn(mob/living/carbon/human/H, mob/M)
+	H.add_quirk("Master Gunsmith")
+
 /datum/outfit/job/bos/f13seniorknight
 	name = "Senior Knight"
 	jobtype = /datum/job/bos/f13seniorknight
@@ -761,14 +771,15 @@ Off-Duty
 	title = "Off-Duty"
 	flag = F13OFFDUTYBOS
 	faction = "BOS"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 8
+	spawn_positions = 8
 	description = "Whether operating in disguise or simply enjoying time from the off-shift, you are still a member of the Brotherhood and must abide by the Codex and follow the orders of your superiors. That being said, while off-duty your orders do not take precedence and you should resist issuing them when another of your rank is currently on duty, and if one does not exist, commit to going on-duty. You have a duty to safeguard what equipment you are given, especially your holotags. Ideally, you should be paired with one or more fellow off-duty members; and you would know where the bunker in the region is."
 	forbids = "The Brotherhood of Steel Forbids: Unethical human experimentation. Violence beyond what is needed to accomplish Brotherhood goals."
 	enforces = "The Brotherhood of Steel Expects: Obeying the Chain That - Binds your direct superior. Collection and safeguarding of technology from the wasteland. Experimentation and research."
 	supervisors = "your superior rank."
 	selection_color = "#95a5a6"
 
+	/*
 	loadout_options = list(
 	/datum/outfit/loadout/offa, //Junior Knight
 	/datum/outfit/loadout/offb, //Knight
@@ -783,6 +794,7 @@ Off-Duty
 	/datum/outfit/loadout/offk, //Senior Paladin
 	/datum/outfit/loadout/offl, //Sentinel
 	)
+	*/
 
 	outfit = /datum/outfit/job/bos/f13offdutybos
 
@@ -804,6 +816,7 @@ Off-Duty
 		/obj/item/encryptionkey/headset_bos=1,
 		)
 
+/*
 /datum/outfit/loadout/offa
 	name = "Junior Knight"
 	head = /obj/item/clothing/head/helmet/f13/combat
@@ -919,3 +932,4 @@ Off-Duty
 		/obj/item/stock_parts/cell/ammo/ec=2,
 		/obj/item/clothing/accessory/bos/sentinel=1
 		)
+*/

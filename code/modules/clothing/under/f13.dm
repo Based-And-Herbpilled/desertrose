@@ -225,6 +225,27 @@
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	flags_inv = HIDEGLOVES|HIDESHOES
 
+//Roma Legion
+
+/obj/item/clothing/under/f13/romaskirt
+	name = "roma legionary fatigues"
+	desc = "A worn and abused pair of fatigues, leftover from the legionary's service to Caesar."
+	icon_state = "roma_legion"
+	item_state = "roma_legion"
+	item_color = "roma_legion"
+
+/obj/item/clothing/under/f13/romaskirt/auxilia
+	name = "roma auxilia fatigues"
+	desc = "A black skirt and a thick long sleeve cotton shirt."
+	icon_state = "roma_auxilia"
+	item_state = "roma_auxilia"
+	item_color = "roma_auxilia"
+	var/sleeves_adjusted = 0
+	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
+	alt_covers_chest = TRUE
+	can_adjust = TRUE
+
 // Generic
 
 /obj/item/clothing/under/f13/machinist
@@ -411,6 +432,12 @@
 	desc = "Well maintained robes adorned with fine leather and polished turquoise."
 	icon_state = "chiefrags"
 	item_state = "chiefrags"
+
+/obj/item/clothing/under/f13/tribe_Hhunter
+	name = "Razorclaw robes"
+	desc = "Tanned leather robes, decorated with bones of deathclaws and marked with the great machine spirit of earth."
+	icon_state = "hhunterrags"
+	item_state = "hhunterrags"
 
 /obj/item/clothing/under/f13/tribe_shaman
 
@@ -839,6 +866,13 @@
 	item_color = "combat"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 20, "fire" = 20, "acid" = 40)
 
+/obj/item/clothing/under/f13/gunner
+	name = "gunner combat uniform"
+	desc = "An ancient combat uniform, that went out of use around the time of the Great War. it has scratch marks and a skull painted on it to symbolize that its part of the gunners"
+	icon_state = "GunnerPlates"
+	item_state = "GunnerPlates"
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 20, "fire" = 20, "acid" = 40)
+
 /obj/item/clothing/under/f13/combat/militia
 	name = "ODF fatigues"
 	desc = "An olive-green combat uniform, issued to members of the Oasis Defense Force."
@@ -884,6 +918,13 @@
 	icon_state = "chinese"
 	item_state = "bl_suit"
 	item_color = "chinese"
+	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 20, "fire" = 20, "acid" = 40)
+
+/obj/item/clothing/under/f13/locust
+	name = "locust uniform"
+	desc = "An ancient pre-war army combat uniform. In use by the locust mercenaries."
+	icon_state = "locust"
+	item_state = "locust"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 20, "fire" = 20, "acid" = 40)
 
 //Fluff
@@ -1101,3 +1142,15 @@
 	desc = "A harness made out of a number of black belts sewn together end on end to form a coiling piece of clothing. A symbol in red has been painted on the front, and a pair of hide pants go with it."
 	icon_state = "raven_harness"
 	item_state = "raven_harness"
+
+/obj/item/clothing/under/f13/jamrock
+	name = "Disco-Ass Shirt and Pants"
+	desc = "This white satin shirt used to be fancy. It used to really catch the light. Now it smells like someone took a piss in the armpits while the golden brown trousers are flare-cut. Normal bell-bottom trousers would be boot-cut, but these are far from normal. They are someone's piss-soaked, cum-stained party pants."
+	icon_state = "jamrock_uniform"
+	item_state = "jamrock_uniform"
+
+/obj/item/clothing/under/f13/keksweater
+	name = "Red Sweater"
+	desc = "A dark red-sweater with some cargo-pants. Perfect for when it just gets too cold down in local air-conditioned areas."
+	icon_state = "brahminsss"
+	item_state = "brahminsss"

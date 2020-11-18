@@ -246,8 +246,8 @@ Raider
 	suit = /obj/item/clothing/suit/armor/f13/raider/supafly
 	head = /obj/item/clothing/head/helmet/f13/raider
 	backpack_contents = list(
-		/obj/item/gun/ballistic/automatic/autopipe=1,
-		/obj/item/ammo_box/magazine/autopipe=2,
+		/obj/item/gun/ballistic/automatic/mini_uzi=1,
+		/obj/item/ammo_box/magazine/uzim9mm=3,
 		/obj/item/kitchen/knife/combat=1,
 		/obj/item/storage/pill_bottle/dice=1,
 		/obj/item/storage/fancy/cigarettes/cigpack_cannabis=1)
@@ -269,21 +269,20 @@ Raider
 	head = /obj/item/clothing/head/helmet/f13/raider/blastmaster
 	backpack_contents = list(
 		/obj/item/twohanded/fireaxe=1,
-		/obj/item/gun/ballistic/revolver/colt6250=1,
+		/obj/item/gun/ballistic/automatic/pistol/n99/pers/glock=1,
 		/obj/item/grenade/iedcasing=2,
-		/obj/item/ammo_box/l10mm=2)
+		/obj/item/ammo_box/magazine/m10mm_auto = 2)
 
 /datum/outfit/loadout/raider_sadist
 	name = "Sadist"
 	suit = /obj/item/clothing/suit/armor/f13/raider/sadist
 	head = /obj/item/clothing/head/helmet/f13/raider/arclight
 	backpack_contents = list(
-		/obj/item/gun/ballistic/revolver/colt357=1,
-		/obj/item/ammo_box/a357=2,
+		/obj/item/gun/ballistic/revolver/m29 = 1,
+		/obj/item/ammo_box/m44 = 2,
 		/obj/item/clothing/mask/gas/explorer/folded=1,
-		/obj/item/throwing_star/spear=1,
-		/obj/item/grenade/chem_grenade/teargas=1,
-		/obj/item/dildo=1)
+		/obj/item/storage/belt/tribe_quiver = 1,
+		/obj/item/twohanded/spear = 1)
 
 /datum/outfit/loadout/raider_badlands
 	name = "Badlands"
@@ -291,9 +290,9 @@ Raider
 	head = /obj/item/clothing/head/helmet/f13/fiend
 	backpack_contents = list(
 		/obj/item/restraints/legcuffs/bola/tactical=1,
-		/obj/item/gun/ballistic/revolver/police=1,
-		/obj/item/ammo_box/a357=1,
-		/obj/item/reagent_containers/hypospray/medipen/psycho=1,
+		/obj/item/gun/ballistic/automatic/pistol/m1911 = 1,
+		/obj/item/ammo_box/magazine/m45 = 2,
+		/obj/item/reagent_containers/hypospray/medipen/psycho=2,
 		/obj/item/reagent_containers/pill/patch/turbo=1)
 
 /datum/outfit/loadout/raider_painspike
@@ -311,6 +310,7 @@ Raider
 /datum/outfit/loadout/raider_bos
 	name = "Brotherhood Exile"
 	suit = /obj/item/clothing/suit/armor/f13/exile/bosexile
+	uniform = /obj/item/clothing/under/syndicate
 	id = /obj/item/card/id/rusted/brokenholodog
 	backpack_contents = list(
 		/obj/item/gun/energy/laser/pistol=1,
@@ -323,7 +323,7 @@ Raider
 	id = /obj/item/card/id/rusted
 	backpack_contents = list(
 		/obj/item/gun/ballistic/automatic/marksman/servicerifle=1,
-		/obj/item/ammo_box/magazine/m556/rifle=2)
+		/obj/item/ammo_box/magazine/m556/rifle=3)
 
 /datum/outfit/loadout/raider_legion
 	name = "Punished Legionnaire"
@@ -341,7 +341,7 @@ Raider
 	uniform = /obj/item/clothing/under/syndicate/tacticool
 	head = /obj/item/clothing/head/helmet/f13/brahmincowboyhat
 	backpack_contents = list(
-		/obj/item/gun/ballistic/revolver/m29/alt=1,
+		/obj/item/gun/ballistic/revolver/m29=1,
 		/obj/item/ammo_box/m44=2,
 		/obj/item/gun/ballistic/shotgun/automatic/hunting/cowboy=1,
 		/obj/item/ammo_box/tube/a357=2)
@@ -353,7 +353,7 @@ Raider
     glasses = /obj/item/clothing/glasses/sunglasses
     shoes = /obj/item/clothing/shoes/f13/fancy
     backpack_contents = list(
-        /obj/item/gun/ballistic/automatic/pistol/ninemil=1,
+        /obj/item/gun/ballistic/automatic/pistol/ninemil/mafia=1,
         /obj/item/ammo_box/magazine/m9mm=2,
 		/obj/item/card/id/dogtag/town/mafia=1,
         /obj/item/toy/cards/deck=1)
@@ -365,7 +365,7 @@ Raider
 	id = /obj/item/card/id/rusted/fadedvaultid
 	backpack_contents = list(
 		/obj/item/gun/ballistic/automatic/pistol/n99=1,
-		/obj/item/ammo_box/magazine/m10mm_adv=2)
+		/obj/item/ammo_box/magazine/m10mm_adv=3)
 
 /datum/job/wasteland/f13wastelander
 	title = "Wastelander"
@@ -384,7 +384,7 @@ Raider
 	loadout_options = list(
 	/datum/outfit/loadout/vault_refugee,
 	/datum/outfit/loadout/petro,
-	/datum/outfit/loadout/follower,
+	///datum/outfit/loadout/follower,
 	/datum/outfit/loadout/merchant,
 	/datum/outfit/loadout/gambler,
 	/datum/outfit/loadout/citizen,
@@ -453,6 +453,7 @@ Raider
 		/obj/item/gun/ballistic/revolver/colt357=2,
 		/obj/item/ammo_box/a357=2)
 
+/*
 /datum/outfit/loadout/follower
 	name = "Follower"
 	uniform = /obj/item/clothing/under/f13/follower
@@ -462,6 +463,7 @@ Raider
 	l_hand = /obj/item/storage/firstaid/ancient
 	backpack_contents =  list(
 		/obj/item/gun/ballistic/automatic/pistol/m1911=1)
+*/
 
 /datum/outfit/loadout/merchant
 	name = "Roving Trader"
@@ -516,3 +518,69 @@ Raider
 	backpack_contents = list(
 		/obj/item/ammo_box/magazine/m556/rifle/small=2)
 
+//////////////////////////////////Locust Mercenaries////////////////////
+/*
+/datum/job/wasteland/f13locustcaptain
+	title = "Locust Captain"
+	flag = F13LOCUSTCAPTAIN
+	head_announce = list("Security")
+	faction = "Neutral"
+	total_positions = 1
+	spawn_positions = 1
+	description = "You are the Captain of the Locust Mercenary Outfit of Yuma. Your job is to grab contracts and tear down anyone in your path to get the mission done"
+	supervisors = "Colonel"
+	req_admin_notify = 1
+	outfit = /datum/outfit/job/wasteland/f13locustcaptain
+
+/datum/outfit/job/wasteland/f13locustcaptain
+	name = "Locust Captain"
+	jobtype 	= /datum/job/wasteland/f13locustcaptain
+	uniform		= /obj/item/clothing/under/f13/locust
+	accessory 	= /obj/item/clothing/accessory/ncr/CPT
+	suit 		= /obj/item/clothing/suit/armor/locustjacket
+	suit_store 	= /obj/item/gun/ballistic/automatic/pistol/ninemil
+	glasses 	= /obj/item/clothing/glasses/sunglasses/big
+	shoes       = /obj/item/clothing/shoes/combat/swat
+	neck = 		/obj/item/storage/belt/holster
+	backpack_contents = list(
+		/obj/item/ammo_box/magazine/m9mm=2, \
+		/obj/item/kitchen/knife/combat=1, \
+		/obj/item/melee/classic_baton/telescopic=1, \
+		/obj/item/twohanded/binocs=1)
+
+/datum/job/wasteland/f13locustcaptain/after_spawn(mob/living/carbon/human/H, mob/M)
+	H.add_quirk("Hard Yards")
+	H.add_quirk("Lifegiver")
+	H.add_quirk("Self-Aware")
+
+/datum/job/wasteland/f13locust
+	title = "Locust Private"
+	flag = F13LOCUST
+	head_announce = list("Security")
+	faction = "Neutral"
+	total_positions = 5
+	spawn_positions = 5
+	description = "You are part of the Locust Mercenary Outfit of Yuma. Your job is to grab contracts and tear down anyone in your path to get the mission done"
+	supervisors = "Captain"
+	req_admin_notify = 1
+	outfit = /datum/outfit/job/wasteland/f13locust
+
+/datum/outfit/job/wasteland/f13locust
+	name = "Locust Private"
+	jobtype 	= /datum/job/wasteland/f13locust
+	uniform		= /obj/item/clothing/under/f13/locust
+	suit 		= /obj/item/clothing/suit/armor/locustjacket
+	suit_store 	= /obj/item/gun/ballistic/automatic/pistol/ninemil
+	glasses 	= /obj/item/clothing/glasses/sunglasses/big
+	shoes       = /obj/item/clothing/shoes/combat/swat
+	neck = 		/obj/item/storage/belt/holster
+	backpack_contents = list(
+		/obj/item/ammo_box/magazine/m9mm=2, \
+		/obj/item/kitchen/knife/combat=1, \
+		/obj/item/melee/classic_baton/telescopic=1, \
+		/obj/item/twohanded/binocs=1)
+
+/datum/job/wasteland/f13locustcaptain/after_spawn(mob/living/carbon/human/H, mob/M)
+	H.add_quirk("Hard Yards")
+	H.add_quirk("Self-Aware")
+*/

@@ -36,6 +36,16 @@
 /obj/item/ammo_box/magazine/m45/empty
 	start_empty = 1
 
+/obj/item/ammo_box/magazine/m45exp
+	name = "socom magazine (.45)"
+	icon_state = "45exp-12"
+	ammo_type = /obj/item/ammo_casing/c45
+	caliber = ".45"
+	max_ammo = 12
+
+/obj/item/ammo_box/magazine/m45exp/empty
+	start_empty = 1
+
 /obj/item/ammo_box/magazine/pistolm9mm
 	name = "pistol magazine (9mm)"
 	icon_state = "9x19p-8"
@@ -96,5 +106,17 @@
 	multiple_sprites = 2
 
 /obj/item/ammo_box/magazine/m9mm/empty
+	start_empty = 1
+
+
+/obj/item/ammo_box/magazine/m9mmds
+	name = "doublestack pistol magazine (9mm)"
+	icon_state = "m9mmds"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	caliber = "9mm"
+	max_ammo = 15
+	multiple_sprites = 2
+
+/obj/item/ammo_box/magazine/m9mmds/empty
 	start_empty = 1
 

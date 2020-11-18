@@ -109,8 +109,8 @@
 /obj/item/clothing/shoes/f13/military/ncr_scout
 	name = "NCR scout boots"
 	desc = "A pair of thick-soled leather boots, well-worn by the wearer."
-	icon_state = "scoutboots"
-	item_state = "scoutboots"
+	icon_state = "laced"
+	item_state = "laced"
 
 /obj/item/clothing/shoes/f13/military/legionleather
 	name = "leather boots"
@@ -176,6 +176,15 @@
 	desc = "Heavy-duty work boots with steel-reinforced toes and some fluffy wool for extra warmth."
 	icon_state = "miner"
 	item_state = "miner"
+	armor = list(melee = 20, bullet = 0, laser = 0, energy = 0, bomb = 20, bio = 0, rad = 0, fire = 0, acid = 0)
+	cold_protection = FEET
+	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT
+
+/obj/item/clothing/shoes/f13/jamrock
+	name = "Green Snakeskin Shoes"
+	desc = "They may have lost some of their lustre over the years, but these green crocodile leather shoes fit you perfectly."
+	icon_state = "jamrock_skins"
+	item_state = "jamrock_skins"
 	armor = list(melee = 20, bullet = 0, laser = 0, energy = 0, bomb = 20, bio = 0, rad = 0, fire = 0, acid = 0)
 	cold_protection = FEET
 	min_cold_protection_temperature = SHOES_MIN_TEMP_PROTECT

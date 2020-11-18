@@ -4,6 +4,7 @@
 	icon_state = "revolver"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder
 	casing_ejector = FALSE
+	spawnwithmagazine = TRUE
 	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_BELT
 	equipsound = 'sound/f13weapons/equipsounds/pistolequip.ogg'
@@ -22,7 +23,7 @@
 /obj/item/gun/ballistic/revolver/shoot_with_empty_chamber(mob/living/user as mob|obj)
 	..()
 	chamber_round(1)
-
+/*
 /obj/item/gun/ballistic/revolver/attackby(obj/item/A, mob/user, params)
 	. = ..()
 	if(.)
@@ -34,7 +35,7 @@
 		A.update_icon()
 		update_icon()
 		chamber_round(0)
-
+*/
 /obj/item/gun/ballistic/revolver/attack_self(mob/living/user)
 	var/num_unloaded = 0
 	chambered = null
@@ -420,6 +421,16 @@
 	zoom_out_amt = 13
 	can_scope = FALSE
 
+/obj/item/gun/ballistic/revolver/m29/snub
+	name = "\improper snubnose .44 magnum revolver"
+	desc = "A snubnose variant of the common place .44 magnum. An excellent holdout weapon for self defense."
+	icon_state = "m29_snub"
+	w_class = WEIGHT_CLASS_SMALL
+	weapon_weight = WEAPON_LIGHT
+	extra_damage = -5 //Smaller barrel, smaller bullet velocity
+	extra_penetration = -5 //See above
+	spread = 10 
+
 /obj/item/gun/ballistic/revolver/colt357
 	name = "\improper .357 magnum revolver"
 	desc = "A relatively primitive .357 magnum revolver."
@@ -445,10 +456,30 @@
 			return 1
 	return 0
 
+/obj/item/gun/ballistic/revolver/shotgunrevolver
+	name = "\improper judge"
+	desc = "A large revolver that fires shotgun shells."
+	icon_state = "judge"
+	item_state = "gun"
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/shotgunrevolver
+	fire_sound = 'sound/f13weapons/caravan_shotgun.ogg'
+	fire_delay = 10
+	w_class = WEIGHT_CLASS_SMALL
+	weapon_weight = WEAPON_LIGHT
+	spread = 40
+
 /obj/item/gun/ballistic/revolver/needler
 	name = "needler pistol"
 	desc = "You suspect this Bringham needler pistol was once used in scientific field studies. It uses small hard-plastic hypodermic darts as ammo. "
 	icon_state = "needler"
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/revneedler
+	fire_sound = 'sound/weapons/gunshot_silenced.ogg'
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/gun/ballistic/revolver/needler/ultra
+	name = "Ultracite needler"
+	desc = "An ultracite enhanced needler pistol"
+	icon_state = "ultraneedler"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/revneedler
 	fire_sound = 'sound/weapons/gunshot_silenced.ogg'
 	w_class = WEIGHT_CLASS_SMALL
@@ -477,6 +508,18 @@
 	zoomable = TRUE
 	zoom_amt = 10
 	zoom_out_amt = 13
+
+/obj/item/gun/ballistic/revolver/sequoia/scoped/mid
+	name = "hunting revolver (improved)"
+	extra_damage = 0
+	extra_penetration = 0
+
+/obj/item/gun/ballistic/revolver/sequoia/scoped/high
+	name = "hunting revolver (masterwork)"
+	zoom_amt = 13
+	zoom_out_amt = 16
+	extra_damage = 7
+	extra_penetration = 7
 
 /obj/item/gun/ballistic/revolver/zipgun
 	name = "zipgun"
@@ -507,8 +550,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/gun/ballistic/revolver/thatgun
-	name = ".556 pistol"
-	desc = "A .556 rifle modified and cut down to a pistol."
+	name = ".223 pistol"
+	desc = "A 556 rifle modified and cut down to a pistol."
 	icon_state = "thatgun"
 	fire_sound = 'sound/f13weapons/magnum_fire.ogg'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/thatgun

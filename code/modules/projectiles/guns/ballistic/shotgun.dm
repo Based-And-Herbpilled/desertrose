@@ -14,11 +14,12 @@
 	var/pump_sound = 'sound/weapons/shotgunpump.ogg'
 	var/nocase = FALSE
 	randomspread = 0
+	spawnwithmagazine = TRUE
 	fire_delay = 2
 	distro = 1
 	fire_sound = 'sound/f13weapons/shotgun.ogg'
 	equipsound = 'sound/f13weapons/equipsounds/shotgunequip.ogg'
-
+/*
 /obj/item/gun/ballistic/shotgun/attackby(obj/item/A, mob/user, params)
 	. = ..()
 	if(.)
@@ -29,7 +30,7 @@
 		playsound(user, 'sound/weapons/shotguninsert.ogg', 60, 1)
 		A.update_icon()
 		update_icon()
-
+*/
 /obj/item/gun/ballistic/shotgun/process_chamber(empty_chamber = 0)
 	return ..() //changed argument value
 
@@ -45,6 +46,10 @@
 	if(recentpump > world.time)
 		return
 	pump(user)
+	if(user.has_trait(TRAIT_MAGIC_HANDS))
+		var/obj/item/F = user.get_inactive_held_item()
+		if(istype(F, /obj/item/gun/ballistic/shotgun))
+			F.attack_self()
 	recentpump = world.time + 10
 	return
 
@@ -342,6 +347,15 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	weapon_weight = WEAPON_LIGHT
 
+/obj/item/gun/ballistic/shotgun/trench/hatchet	
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 100, "embedded_fall_chance" = 0)
+	force = 35
+	throwforce = 40
+	name = "lever action shotgun (with axe)"
+	desc = "A lever action hunting shotgun with a five-shell capacity underneath plus one in chamber. This one has an axe attached to it."
+	icon_state = "trenchgun-axe"
+	hitsound = 'sound/weapons/bladeslice.ogg'	
+
 /obj/item/gun/ballistic/shotgun/hunting
 	name = "hunting shotgun"
 	desc = "A traditional hunting shotgun with wood furniture and a four-shell capacity underneath."
@@ -434,7 +448,7 @@
 		..()
 
 /obj/item/gun/ballistic/shotgun/ww2rifle
-	name = "\improper ancient rifle"
+	name = "\improper Karabiner 98k"
 	desc = "An ancient military rifle in use over 100 years ago, chambered in .308 and packing an additional punch."
 	icon_state = "kar98"
 	item_state = "308"
@@ -448,7 +462,7 @@
 	extra_penetration = 10
 
 /obj/item/gun/ballistic/shotgun/ww2rifle/scoped
-	name = "\improper scoped ancient rifle"
+	name = "\improper scoped Karabiner 98k"
 	desc = "An ancient military rifle in use over 100 years ago, chambered in .308 and packing an additional punch. Now with a scope."
 	icon_state = "kar98scope"
 	item_state = "308"
@@ -523,7 +537,7 @@
 	pump_sound = 'sound/f13weapons/cowboyrepeaterreload.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	fire_delay = 6
+	fire_delay = 4
 	can_scope = TRUE
 
 /obj/item/gun/ballistic/shotgun/automatic/hunting/cowboy/scoped
@@ -539,7 +553,20 @@
 	zoom_out_amt = 13
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	fire_delay = 8
+	fire_delay = 6
+	can_scope = FALSE
+
+/obj/item/gun/ballistic/shotgun/remington/ultraneedle
+	name = "heavy ultracite needler"
+	desc = "A long, makeshift weapon created from items found across the wasteland. Pneumatic in nature, what it lacks in a punch it makes up for in literal shards of radioactive glass sticking in your target."
+	icon_state = "ultraneedle"
+	item_state = "ultraneedle"
+	mag_type = /obj/item/ammo_box/magazine/internal/heavyneedle
+	fire_sound = 'sound/f13weapons/hunting_rifle.ogg'
+	fire_delay = 3
+	zoomable = TRUE
+	zoom_amt = 10
+	zoom_out_amt = 13
 	can_scope = FALSE
 
 /obj/item/gun/ballistic/shotgun/automatic/hunting/brush
@@ -551,7 +578,7 @@
 	fire_sound = 'sound/f13weapons/brushgunfire.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	fire_delay = 6
+	fire_delay = 4
 	can_scope = TRUE
 
 /obj/item/gun/ballistic/shotgun/automatic/hunting/brush/scoped
@@ -566,8 +593,21 @@
 	zoom_out_amt = 13
 	w_class = WEIGHT_CLASS_BULKY
 	weapon_weight = WEAPON_HEAVY
-	fire_delay = 8
+	fire_delay = 6
 	can_scope = FALSE
+
+/obj/item/gun/ballistic/shotgun/automatic/hunting/brush/scoped/mid
+	name = "scoped brush gun (improved)"
+	extra_damage = 5
+	extra_penetration = 5
+	fire_delay = 5
+
+/obj/item/gun/ballistic/shotgun/automatic/hunting/brush/scoped/high
+	name = "scoped brush gun (masterwork)"
+	extra_damage = 12
+	extra_damage = 12
+	fire_delay = 4
+
 
 /obj/item/gun/ballistic/revolver/widowmaker
 	name = "winchester widowmaker"
